@@ -7,7 +7,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<div class ="container">
+
 <body>
 
 
@@ -17,12 +17,14 @@
   </div>
 </nav>
 
+<div class ="container">
 <%= yield %>
 
 
 <hr>
-<div class= "footer-fixed-bottom">
+<footer>
 <%= link_to "About", about_path %> | <%= link_to "Terms", terms_path %> | <%= link_to "FAQ", faq_path %>
+</footer>
 
 
 
