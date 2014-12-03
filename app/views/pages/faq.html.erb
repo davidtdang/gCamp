@@ -3,16 +3,15 @@
 <div class="row">
   <div class="col-md-8">
 
-    <% @questions.each do |question| %>
+    <% @faqs.each do |faq| %>
     <p>
-      <strong><%= question[0]%></strong>
+      <strong>
+        <%= faq.question %>
+      </strong>
     </p>
-    <%= question[1]%>
     <p>
-      <br>
-      <br>
+    <%= faq.answer%>
+    </p>
       <% end %>
     </div>
   </div>
-
-  
