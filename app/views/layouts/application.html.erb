@@ -7,32 +7,37 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-
+<div class ="container">
 <body>
 
 
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
   <div class="container">
-    <a class="navbar-brand" href="home">gCamp</a>
+    <a class="navbar-brand" href="/home">gCamp</a>
   </div>
 </nav>
 
-<div class ="container">
+
 <%= yield %>
 
 
-<hr>
-<footer>
-<%= link_to "About", about_path %> | <%= link_to "Terms", terms_path %> | <%= link_to "FAQ", faq_path %>
-</footer>
 
 
 
 
 
 
-</div>
+
+
 </body>
 
 
+<hr>
+<div class ="container">
+
+<footer>
+  <%= link_to "About", about_path %> | <%= link_to "Terms", terms_path %> | <%= link_to "FAQ", faq_path %> | <%= link_to "Tasks", tasks_path %>
+</footer>
+
+</div>
 </html>
