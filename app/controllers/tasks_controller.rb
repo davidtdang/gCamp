@@ -4,8 +4,57 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
-  end
+    @tasks = Task.all   ####DELETE THIS LINE to use following methods
+
+    # # #####  Original
+    # # if params[:complete]   # if value is anything, which is why it can be improved upon
+    # #   @tasks = Task.where(:complete => false)
+    # #
+    # # #####  Slightly improved
+    # # if params[:complete] == "false"   #if value is false
+    # #   @tasks = Task.where(:complete => false)
+    # #
+    # # ######   Best   best because it filters by true or false
+    # #               # key
+    #
+    # if params[:complete]
+    #                 # task.where finds a list of tasks where a condition is true (what's inside the () ).   .where is a method on active records
+    #   @tasks = Task.where(:complete => params[:complete])
+    # else
+    #   @tasks = Task.all
+    #     respond_to do |format|
+    #       format.html
+    #       format.csv do
+    #         headers['Content-Disposition'] = "attachment; filename=\"task-list\""
+    #         headers['Content-Type'] || = 'text/csv'
+    #       end
+    #     end
+    #   end
+    #
+    #   #### refactored of BEST
+    #                   @tasks = Task.all
+    #
+    #                   if params[:complete]
+    #                     @tasks = Task.where(:complete => params[:complete])
+    #                   end
+    #
+    #                   #### example of what you can add into this technique
+    #                   if params[:due_date]
+    #                     @tasks = Task.where(:complete => params[:due_date])
+    #                   end
+    #
+    #                   @tasks = @tasks.where(some_other_condition: true)
+    #
+    #                     respond_to do |format|
+    #                       format.html
+    #                       format.csv do
+    #                         headers['Content-Disposition'] = "attachment; filename=\"task-list\""
+    #                         headers['Content-Type'] || = 'text/csv'
+    #                     end
+    #                   end
+
+    end
+
 
   # GET /tasks/1
   # GET /tasks/1.json
