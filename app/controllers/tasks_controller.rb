@@ -4,7 +4,13 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all   ####DELETE THIS LINE to use following methods
+    @tasks = Task.all
+    
+
+    if params[:completed] == "false"
+      @tasks = @tasks.where({completed: false })
+    end
+    ####DELETE THIS LINE to use following methods
 
     # # #####  Original
     # # if params[:complete]   # if value is anything, which is why it can be improved upon

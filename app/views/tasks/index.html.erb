@@ -1,7 +1,16 @@
-<div class= "page-header">
-  <%= link_to "New Task", new_task_path, class: "btn btn-info pull-right"%>
-  <h1>Tasks</h1>
 
+<div class= "page-header">
+  <div class= "pull-right">
+
+  <%= link_to "All", @Tasks%> |
+  <%= link_to "Incomplete", (filter_params({completed: false})) %>
+
+
+  <%= link_to "New Task", new_task_path, class: "btn btn-info"%>
+
+
+</div>
+<h1>Tasks</h1>
 </div>
 
 <table>
