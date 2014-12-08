@@ -1,21 +1,14 @@
-
 <div class= "page-header">
   <div class= "pull-right">
-
   <%= link_to "All", @Tasks%> |
   <%= link_to "Incomplete", (filter_params({completed: false})) %>
-
-
   <%= link_to "New Task", new_task_path, class: "btn btn-info"%>
-
-
 </div>
 <h1>Tasks</h1>
 </div>
 
-<table>
+<table class="table">
   <thead>
-    <table class="table">
     <tr>
       <th>Description</th>
       <th>Complete</th>
@@ -27,13 +20,9 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-
         <td><%= task.description %></td>
-
         <td><%= task.completed %></td>
-
         <td><%= task.due_date %></td>
-
         <td>
           <div class= "pull-right">
             <%= link_to 'Show', task, class: "btn btn-success"%>
@@ -41,7 +30,6 @@
             <%= link_to 'Delete', task, method: :delete, data: { confirm: true }, class: "btn btn-danger"%>
           </div>
         </td>
-
       </tr>
     <% end %>
 
