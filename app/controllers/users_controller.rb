@@ -9,6 +9,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+  end
+
   def create
     @user = User.create(user_params)
     respond_to do |format|
@@ -17,6 +20,23 @@ class UsersController < ApplicationController
       else
         format.html { render :new }
       end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully update.' }
+      else
+        format.html {render :edit}
+      end
+    end
+  end
+
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
     end
   end
 
