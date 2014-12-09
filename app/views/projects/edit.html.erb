@@ -1,0 +1,31 @@
+<%= form_for @project, html: {class: "form-horizontal"} do |f| %>
+
+<% if notice %>
+<div class="alert alert-success" role="alert">
+  <div style="text-align: center">
+    <p id="flash"><%= notice %></p>
+  </div>
+</div>
+<% end %>
+
+<div class= "page-header">
+  <h1>Edit Project</h1>
+</div>
+
+<div class="form-group">
+  <%= f.label :name, class: "col-sm-2"%>
+  <div class="col-sm-5">
+    <%= f.text_field :name, class:"form-control", id:"name" %>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <div class="actions">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-info" %>
+      <%= link_to "Cancel", @projectsreturnpath, class: "btn btn-default" %>
+    </div>
+  </div>
+
+<% end %>

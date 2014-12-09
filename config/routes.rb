@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks, :users
+  resources :tasks, :users, :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'tasks' => 'tasks#index'
 
   get 'users' => 'users#index'
+
+  get 'projects' => 'projects#index'
 
 end
 

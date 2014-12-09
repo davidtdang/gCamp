@@ -1,0 +1,32 @@
+<% @projectsreturnpath = projects_path %>
+
+
+<% if notice %>
+<div class="alert alert-success" role="alert">
+  <div style="text-align: center">
+    <p id="flash"><%= notice %></p>
+  </div>
+</div>
+<% end %>
+
+<div class= "page-header">
+  <div class= "pull-right">
+    <%= link_to "New Project", new_project_path, class: "btn btn-info"%>
+  </div>
+  <h1>Projects</h1>
+</div>
+
+<table class= "table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    <tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project_path(project)%></td>
+      <tr>
+    </tbody>
+    <% end %>
+</table>
