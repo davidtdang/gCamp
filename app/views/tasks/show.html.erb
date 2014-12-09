@@ -1,8 +1,10 @@
-<p id="notice">
-  <div class="alert alert-success" role="alert">
-  <%= notice %>
+<% if notice %>
+<div class="alert alert-success" role="alert">
+  <div style="text-align: center">
+    <p id="flash"><%= notice %></p>
+  </div>
 </div>
-  </p>
+<% end %>
 
 <p>
   <strong>Description:</strong>

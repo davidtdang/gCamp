@@ -13,25 +13,40 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    respond_to do |format|
-      if @user.save
-        format.html {redirect_to @user, notice: 'User was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to users_url, notice: 'User was successfully created.'
+    else
+      render :new
     end
   end
+  #
+  #   @user = User.create(user_params)
+  #   respond_to do |format|
+  #     if @user.save
+  #       format.html {redirect_to @user, notice: 'User was successfully created.' }
+  #     else
+  #       format.html { render :new }
+  #     end
+  #   end
+  # end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully update.' }
-      else
-        format.html {render :edit}
-      end
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit
     end
   end
+  #   respond_to do |format|
+  #     if @user.update(user_params)
+  #       format.html { redirect_to @user, notice: 'User was successfully updated.' }
+  #     else
+  #       format.html {render :edit}
+  #     end
+  #   end
+  # end
 
   def destroy
     @user.destroy
