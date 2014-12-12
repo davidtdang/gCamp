@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.new(project_params)
+    @project.update(project_params)
     if @project.save
       redirect_to @project, notice: 'Project was successfully updated.'
     else

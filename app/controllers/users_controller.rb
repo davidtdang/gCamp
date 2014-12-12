@@ -32,13 +32,16 @@ class UsersController < ApplicationController
   # end
 
   def update
-    @user = User.new(user_params)
+    @user.update(user_params)
     if @user.save
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to users_path, notice: 'User was successfully updated.'
     else
       render :edit
     end
   end
+
+
+
   #   respond_to do |format|
   #     if @user.update(user_params)
   #       format.html { redirect_to @user, notice: 'User was successfully updated.' }
