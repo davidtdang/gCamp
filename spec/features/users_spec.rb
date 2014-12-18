@@ -41,7 +41,7 @@ feature 'CRUDING users' do
     expect(page).to have_content("namey@nameson.com")
   end
 
-  scenario "Listing a user on show page" do
+  scenario "Showing an individual user" do
     User.create!(
     first_name: "Bob", last_name: "Loblaw", email: "bob@loblaw.com"
     )
@@ -65,7 +65,6 @@ feature 'CRUDING users' do
     click_on "Delete User"
     expect(page).to have_no_content("Deathy Deatherson")
     expect(page).to have_no_content("deathy@deatherson.com")
-    expect(page.current_path).to eq(users_path)
   end
 
 end

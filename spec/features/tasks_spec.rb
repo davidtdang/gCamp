@@ -5,7 +5,7 @@ feature 'CRUDing tasks' do
   scenario 'User can create a task' do
     visit tasks_path
     click_on "New Task"
-    fill_in :description , with: "Job to do"
+    fill_in :description, with: "Job to do"
     fill_in :due_date, with: "01/01/2015"
     click_on "Create Task"
 
@@ -31,12 +31,22 @@ feature 'CRUDing tasks' do
     expect(page).to have_content("true")
   end
 
-  scenario "Listing a task" do
+  scenario "Listing a tasks" do
     Task.create!(
     description: "Job being listed",
     )
     visit tasks_path
     expect(page).to have_content("Job being listed")
+  end
+
+  scenario "Showing an individual task" do
+    Task.create!(
+    description: "Job being shown",
+    )
+
+    visit tasks_path
+    click_on "Show"
+    expect(page).to have_content("Job being shown")
   end
 
   scenario "Deleting task" do
